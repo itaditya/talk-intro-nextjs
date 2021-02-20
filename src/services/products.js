@@ -5,3 +5,11 @@ export async function fetchRecommendedProducts() {
   const json = await res.json();
   return json;
 }
+
+export async function fetchProducts(options = {}) {
+  const { page = 1 } = options;
+
+  const res = await fetch(`${productsApiUrl}?_limit=6&_page=${page}`);
+  const json = await res.json();
+  return json;
+}
